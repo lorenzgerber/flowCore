@@ -9,24 +9,12 @@ convertRawBytes <- function(bytes, isInt, colSize, ncol, isBigEndian) {
     .Call(`_flowCore_convertRawBytes`, bytes, isInt, colSize, ncol, isBigEndian)
 }
 
-string_to_spill <- function(key) {
-    .Call(`_flowCore_string_to_spill`, key)
-}
-
-spill_to_string <- function(mat, markers) {
-    .Call(`_flowCore_spill_to_string`, mat, markers)
-}
-
 fcsTextParse <- function(txt, emptyValue) {
     .Call(`_flowCore_fcsTextParse`, txt, emptyValue)
 }
 
 hyperlog_transform <- function(input, T, W, M, A, isInverse) {
     .Call(`_flowCore_hyperlog_transform`, input, T, W, M, A, isInverse)
-}
-
-inPolygon <- function(data, vertices) {
-    .Call(`_flowCore_inPolygon`, data, vertices)
 }
 
 inPolytope <- function(data, A, b) {

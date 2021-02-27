@@ -11,6 +11,5 @@
 
 #include "pairVectorRcppWrap.h"
 #include "convertRawBytes.h"
-#include <cytolib/in_polygon.hpp>
 
 #endif /* FLOWCORE_TYPES_H_ */

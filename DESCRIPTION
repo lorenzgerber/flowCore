@@ -26,58 +26,16 @@ Imports:
     stats4,
     Rcpp,
     matrixStats,
-    cytolib (>= 2.3.4),
     S4Vectors
 Suggests:
     Rgraphviz,
     flowViz,
-    flowStats (>= 3.43.4),
     testthat,
-    flowWorkspace,
-    flowWorkspaceData,
-    openCyto,
     knitr,
-    ggcyto,
     gridExtra
-Collate:
-    AllGenerics.R
-    AllClasses.R
-    flowFrame-accessors.R
-    flowSet-accessors.R
-    transform_gate-methods.R
-    coerce.R
-    logicalFilterResult-accessors.R
-    summarizeFilter-methods.R
-    filterSummary-accessors.R
-    manyFilterResult-accessors.R
-    summary-methods.R
-    multipleFilterResult-accessors.R
-    on-methods.R
-    transformList-accessors.R
-    identifier-methods.R
-    parameters-methods.R
-    initialize-methods.R
-    filterResult-accessors.R
-    in-methods.R
-    rectangleGate-accessors.R
-    filterResultList-accessors.R
-    IO.R
-    show-methods.R
-    length-methods.R
-    names-methods.R
-    split-methods.R
-    eval-methods.R
-    gatingML.R
-    FCSTransTransform.R
-    median-logicle-transform.R
-    utils.R
-    RcppExports.R
-    flowCore.R
-    GvHD.R
-    CytoExploreR_wrappers.R
 License: Artistic-2.0
 biocViews: ImmunoOncology, Infrastructure, FlowCytometry, CellBasedAssays
-LinkingTo: Rcpp, RcppArmadillo, BH(>= 1.65.0.1), cytolib, RProtoBufLib
+LinkingTo: Rcpp, RcppArmadillo, BH(>= 1.65.0.1), RProtoBufLib
 VignetteBuilder: knitr
 SystemRequirements: GNU make, C++11
 RoxygenNote: 7.1.1

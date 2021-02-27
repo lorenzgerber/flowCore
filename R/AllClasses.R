@@ -3303,14 +3303,6 @@ setClass("filterReference",
          env="environment"),
          contains="filter")
 
-## Constructor from an environment
-#' @export
-setMethod("filterReference",
-          signature("environment", "character"),
-          function(from, name) {
-              new("filterReference", name=name, env=from)
-          })
-
 
 
 ## ===========================================================================
@@ -3574,63 +3566,8 @@ setClass("subsetFilter",
          TRUE
      })
 
-#' Take the intersection of two filters
-#' 
-#' 
-#' There are two notions of intersection in \code{flowCore}. First, there is
-#' the usual intersection boolean operator \code{&} that has been overridden to
-#' allow the intersection of two filters or of a filter and a list for
-#' convenience. There is also the \code{\%&\%} or \code{\%subset\%} operator that
-#' takes an intersection, but with subset semantics rather than simple
-#' intersection semantics. In other words, when taking a subset, calculations
-#' from \code{\link[flowCore:filterSummary-class]{summary}} and other methods
-#' are taken with respect to the right hand filter. This primarily affects
-#' calculations, which are ordinarily calculated with respect to the entire
-#' population as well as data-driven gating procedures which will operate only
-#' on elements contained by the right hand filter.  This becomes especially
-#' important when using filters such as
-#' \code{\link[flowStats:norm2Filter-class]{norm2Filter}}
-#' 
-#' 
-#' @name filter-and-methods
-#' @aliases intersectFilter-method subsetFilter-method %&% %&%-methods
-#' %&%,ANY-method %&%,filter,filter-method %subset%,ANY-method %subset%
-#' &,filter,filter-method &,filter,list-method &,list,filter-method
-#' %subset%,filter,filter-method %subset%,list,filter-method
-#' coerce,intersectFilter,call-method
-#' @docType methods
-#' 
-#' @param e1,e2 \code{\linkS4class{filter}} objects or lists of filter objects
-#' 
-#' @usage 
-#' e1 \%&\% e2
-#' e1 \%subset\% e2
-#' 
-#' @author B. Ellis
-#' @keywords methods
-## constructor from two filters. %&% is an alias for %subset%
-#' @export
-setMethod("%subset%",
-          signature=signature(e1="filter",
-          e2="filter"),
-          definition=function(e1, e2)
-      {
-          new("subsetFilter",
-              filters=list(e1, e2), filterId=paste(identifier(e1),"in",
-                                    identifier(e2)))
-      })
-#' @export
-setMethod("%&%",
-          signature=signature(e1="filter",
-          e2="filter"),
-          definition=function(e1, e2) e1 %subset% e2)
 
-## constructor from a list of filters and a filter
-#' @export
-setMethod("%subset%",
-          signature=signature(e1="list",
-          e2="filter"),
-          definition=function(e1, e2) lapply(e1, "%subset%", e2=e2))
+
 
 
 ## ===========================================================================

@@ -41,29 +41,6 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// string_to_spill
-NumericMatrix string_to_spill(string key);
-RcppExport SEXP _flowCore_string_to_spill(SEXP keySEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< string >::type key(keySEXP);
-    rcpp_result_gen = Rcpp::wrap(string_to_spill(key));
-    return rcpp_result_gen;
-END_RCPP
-}
-// spill_to_string
-string spill_to_string(const arma::Mat<double>& mat, vector<string> markers);
-RcppExport SEXP _flowCore_spill_to_string(SEXP matSEXP, SEXP markersSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::Mat<double>& >::type mat(matSEXP);
-    Rcpp::traits::input_parameter< vector<string> >::type markers(markersSEXP);
-    rcpp_result_gen = Rcpp::wrap(spill_to_string(mat, markers));
-    return rcpp_result_gen;
-END_RCPP
-}
 // fcsTextParse
 myPairs fcsTextParse(std::string txt, bool emptyValue);
 RcppExport SEXP _flowCore_fcsTextParse(SEXP txtSEXP, SEXP emptyValueSEXP) {
@@ -89,18 +66,6 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type A(ASEXP);
     Rcpp::traits::input_parameter< bool >::type isInverse(isInverseSEXP);
     rcpp_result_gen = Rcpp::wrap(hyperlog_transform(input, T, W, M, A, isInverse));
-    return rcpp_result_gen;
-END_RCPP
-}
-// inPolygon
-std::vector<bool> inPolygon(NumericMatrix data, NumericMatrix vertices);
-RcppExport SEXP _flowCore_inPolygon(SEXP dataSEXP, SEXP verticesSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericMatrix >::type data(dataSEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type vertices(verticesSEXP);
-    rcpp_result_gen = Rcpp::wrap(inPolygon(data, vertices));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -172,11 +137,8 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_flowCore_biexponential_transform", (DL_FUNC) &_flowCore_biexponential_transform, 9},
     {"_flowCore_convertRawBytes", (DL_FUNC) &_flowCore_convertRawBytes, 5},
-    {"_flowCore_string_to_spill", (DL_FUNC) &_flowCore_string_to_spill, 1},
-    {"_flowCore_spill_to_string", (DL_FUNC) &_flowCore_spill_to_string, 2},
     {"_flowCore_fcsTextParse", (DL_FUNC) &_flowCore_fcsTextParse, 2},
     {"_flowCore_hyperlog_transform", (DL_FUNC) &_flowCore_hyperlog_transform, 6},
-    {"_flowCore_inPolygon", (DL_FUNC) &_flowCore_inPolygon, 2},
     {"_flowCore_inPolytope", (DL_FUNC) &_flowCore_inPolytope, 3},
     {"_flowCore_logicle_transform", (DL_FUNC) &_flowCore_logicle_transform, 6},
     {"_flowCore_poly_centroid", (DL_FUNC) &_flowCore_poly_centroid, 1},
