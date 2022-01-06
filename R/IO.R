@@ -413,7 +413,7 @@ read.FCS <- function(filename,
     return(tmp)
 }
 
-txt2spillmatrix <- function(txt, cpp = TRUE){
+txt2spillmatrix <- function(txt, cpp = FALSE){
   if(cpp)
   {
 	  string_to_spill(txt)
